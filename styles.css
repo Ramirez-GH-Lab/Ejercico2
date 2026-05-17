@@ -1,0 +1,521 @@
+/* ============================================================================
+   ESTILOS GENERALES Y RESET
+   ============================================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #8b5cf6;
+    --primary-dark: #7c3aed;
+    --primary-light: #a78bfa;
+    --secondary-color: #ec4899;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --warning-color: #f59e0b;
+    --gray-light: #f9fafb;
+    --gray-medium: #d1d5db;
+    --gray-dark: #4b5563;
+    --text-color: #1f2937;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ============================================================================
+   CONTENEDOR PRINCIPAL
+   ============================================================================ */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================================
+   WRAPPER DEL FORMULARIO
+   ============================================================================ */
+
+.form-wrapper,
+.table-wrapper {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--shadow-lg);
+}
+
+.form-wrapper h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--gray-dark);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* ============================================================================
+   FIELDSET Y LEYENDAS
+   ============================================================================ */
+
+fieldset {
+    border: none;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+fieldset:last-of-type {
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-light);
+    width: 100%;
+}
+
+/* ============================================================================
+   GRUPOS DE FORMULARIO
+   ============================================================================ */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--gray-medium);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.form-group input.valid,
+.form-group select.valid {
+    border-color: var(--success-color);
+    background-color: rgba(16, 185, 129, 0.05);
+}
+
+.form-group input.error,
+.form-group select.error {
+    border-color: var(--error-color);
+    background-color: rgba(239, 68, 68, 0.05);
+}
+
+/* ============================================================================
+   CHECKBOXES PERSONALIZADOS
+   ============================================================================ */
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+/* ============================================================================
+   MENSAJES DE ERROR
+   ============================================================================ */
+
+.error-message {
+    display: none;
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin-top: 6px;
+    font-weight: 500;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================================
+   BOTONES DE ACCIÓN
+   ============================================================================ */
+
+.form-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background-color: var(--gray-medium);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: #bfdbfe;
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ============================================================================
+   MENSAJE DE ÉXITO
+   ============================================================================ */
+
+.success-message {
+    background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+    color: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+    margin-top: 20px;
+}
+
+.success-message h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.success-message.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ============================================================================
+   TABLA DE ALUMNOS
+   ============================================================================ */
+
+.table-wrapper h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.students-table thead {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+}
+
+.students-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.students-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--gray-medium);
+    font-size: 0.95rem;
+}
+
+.students-table tbody tr:hover {
+    background-color: var(--gray-light);
+}
+
+.students-table tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+/* ============================================================================
+   BOTONES DE TABLA
+   ============================================================================ */
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.btn-edit {
+    background-color: var(--primary-light);
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: var(--primary-color);
+}
+
+.btn-delete {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #dc2626;
+}
+
+/* ============================================================================
+   MENSAJE SIN DATOS
+   ============================================================================ */
+
+.no-data {
+    text-align: center;
+    color: var(--gray-dark);
+    padding: 40px 20px;
+    font-style: italic;
+}
+
+/* ============================================================================
+   ESTILOS DE IMPRESIÓN
+   ============================================================================ */
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .container {
+        display: block;
+        max-width: 100%;
+    }
+
+    .form-wrapper {
+        page-break-after: always;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .form-actions,
+    .success-message,
+    .btn {
+        display: none;
+    }
+
+    .table-wrapper {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .students-table {
+        font-size: 0.9rem;
+    }
+
+    .students-table th,
+    .students-table td {
+        padding: 10px;
+    }
+
+    .action-buttons {
+        display: none;
+    }
+}
+
+/* ============================================================================
+   ESTILOS RESPONSIVOS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .container {
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .form-wrapper,
+    .table-wrapper {
+        padding: 20px;
+    }
+
+    .form-wrapper h1 {
+        font-size: 1.5rem;
+    }
+
+    legend {
+        font-size: 1rem;
+    }
+
+    .form-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .students-table {
+        font-size: 0.9rem;
+    }
+
+    .students-table th,
+    .students-table td {
+        padding: 10px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn-small {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .form-wrapper,
+    .table-wrapper {
+        padding: 15px;
+    }
+
+    .form-wrapper h1 {
+        font-size: 1.3rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    legend {
+        font-size: 0.95rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 10px;
+        font-size: 16px; /* Previene zoom en iOS */
+    }
+
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+
+    .students-table th,
+    .students-table td {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    .students-table th {
+        font-size: 0.75rem;
+    }
+}
